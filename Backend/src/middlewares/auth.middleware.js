@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const tokenBlacklistModel = require("../models/tokenBlacklist.model")
+const tokenBlackListModel = require("../models/tokenBlackList.model.js")
 
 
 async function authUser(req, res, next) {
@@ -10,7 +10,7 @@ async function authUser(req, res, next) {
         })
     }
 
-    const isBlockedListed = await tokenBlacklistModel.findOne({ token })
+    const isBlockedListed = await tokenBlackListModel.findOne({ token })
     if (isBlockedListed) {
         return res.status(401).json({
             message: "Invalid Token"
