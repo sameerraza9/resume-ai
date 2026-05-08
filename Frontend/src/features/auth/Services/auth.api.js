@@ -30,3 +30,31 @@ export async function login({ username, password }) {
         console.log(err);
     }
 }
+
+
+export async function logout() {
+    try {
+        const response = await axios.get("http://localhost:3000/api/auth/login", {
+            withCredentials: true
+        })
+
+        return response.data
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+export async function getMe() {
+    try {
+        const response = await axios.get("http://localhost:3000/api/auth/get-me", {
+            withCredentials: true
+        })
+
+        return response.data
+
+    } catch (err) {
+        console.log(err);
+    }
+}
