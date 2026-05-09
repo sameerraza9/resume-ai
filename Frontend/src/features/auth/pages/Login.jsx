@@ -5,14 +5,23 @@ import { useAuth } from '../hooks/useAuth.js'
 
 
 const Login = () => {
-
-    const {handleLogin, user,loading } = useAuth()
-
     const navigate = useNavigate()
+
+    const { handleLogin, loading } = useAuth()
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        handleLogin({ username, password })
     }
+
+    if (loading) {
+        return (<main><h1>Loading....</h1></main>)
+    }
+
 
     return (
         <main>
@@ -22,13 +31,17 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
 
                     <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id='email' name='email' placeholder='Enter Email to Login' />
+                        <label htmlFor="username">Username</label>
+                        <input
+                            onChange={(e) => { setUsername(e.target.value) }}
+                            type="username" id='username' name='username' placeholder='Enter username to Login' />
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id='password' name='password' placeholder='Enter Password to Login' />
+                        <input
+                            onChange={(e) => { setPassword(e.target.value) }}
+                            type="password" id='password' name='password' placeholder='Enter Password to Login' />
                     </div>
 
                     <button className='button primary-button'>Login</button>
