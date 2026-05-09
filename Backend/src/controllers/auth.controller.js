@@ -81,7 +81,8 @@ async function loginUserController(req, res) {
 
     res.status(200).json({
         message: "user Logged In!",
-        token
+        token,
+        user
     })
 
 }

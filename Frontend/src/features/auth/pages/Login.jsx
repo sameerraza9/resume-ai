@@ -1,9 +1,12 @@
 import React from 'react'
 import "../auth.form.scss"
 import { useNavigate, Link } from 'react-router'
+import { useAuth } from '../hooks/useAuth.js'
 
 
 const Login = () => {
+
+    const {handleLogin, user,loading } = useAuth()
 
     const navigate = useNavigate()
 
