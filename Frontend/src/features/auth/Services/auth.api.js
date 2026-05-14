@@ -17,7 +17,7 @@ export async function register({ username, email, password }) {
             username, email, password
         })
 
-        return response.data
+        return response.data    
 
     } catch (err) {
         console.log(err);
@@ -31,7 +31,6 @@ export async function login({ username, password }) {
         const response = await api.post("/api/auth/login", {
             username, password
         })
-
         return response.data
 
     } catch (err) {
@@ -42,7 +41,7 @@ export async function login({ username, password }) {
 
 export async function logout() {
     try {
-        const response = await api.get("/api/auth/login")
+        const response = await api.get("/api/auth/logout")
 
         return response.data
 

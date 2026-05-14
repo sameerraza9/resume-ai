@@ -13,10 +13,9 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
-        handleLogin({ username, password })
+        await handleLogin({ username, password })
     }
 
     if (loading) {
@@ -35,7 +34,7 @@ const Login = () => {
                         <label htmlFor="username">Username</label>
                         <input
                             onChange={(e) => { setUsername(e.target.value) }}
-                            type="username" id='username' name='username' placeholder='Enter username to Login' />
+                            type="text" id='username' name='username' placeholder='Enter username to Login' />
                     </div>
 
                     <div className="input-group">
