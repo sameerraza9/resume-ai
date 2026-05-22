@@ -15,7 +15,7 @@ const Protected = ({ children }) => {
     }
 
     return (
-        <div>Protected</div>
+        <div>{children}</div>
     )
 }
 
